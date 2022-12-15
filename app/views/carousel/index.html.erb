@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Value</th>
+    <th>Direction</th>
+    <th>Spread</th>
+    <th>Link</th>
+  </tr>
+  <% @carousel_stocks.each do |stock| %>
+    <tr>
+        <td><%= stock["Name"] %></td>
+        <td><%= stock["Alias"] %></td>
+        <td><%= stock["Value"] %></td>
+        <td><%= stock["Direction"] %></td>
+        <td><%= stock["Spread"] %></td>
+        <td><%= link_to "Conferir Stock", stock_show_url(stock["Alias"]) %></td>
+    </tr>
+  <% end %>
+  </div>
+</table>

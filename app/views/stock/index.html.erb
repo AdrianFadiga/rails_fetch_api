@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th>StockCode</th>
+    <th>StockName</th>
+    <th>Value</th>
+    <th>ValueFormatted</th>
+    <th>ChangeDay</th>
+    <th>ChangeDayFormatted</th>
+    <th>Change12M</th>
+    <th>Change12MFormatted</th>
+    <th>Volume</th>
+    <th>VolumeFormatted</th>
+    <th>Info</th>
+  </tr>
+  <% @stocks.each do |stock| %>
+    <tr>
+      <td><%= stock["StockCode"] %></td>
+      <td><%= stock["StockName"] %></td>
+      <td><%= stock["Value"] %></td>
+      <td><%= stock["ValueFormatted"] %></td>
+      <td><%= stock["ChangeDay"] %></td>
+      <td><%= stock["ChangeDayFormatted"] %></td>
+      <td><%= stock["Change12M"] %></td>
+      <td><%= stock["Change12MFormatted"] %></td>
+      <td><%= stock["Volume"] %></td>
+      <td><%= stock["VolumeFormatted"] %></td>
+      <td><%= link_to "info", stock_show_url(stock["StockCode"]) %>
+    </tr>
+  <% end %>
+</table>
