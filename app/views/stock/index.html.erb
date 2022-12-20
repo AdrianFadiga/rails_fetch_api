@@ -1,30 +1,37 @@
-<table>
+<table id="example" class="display" style="width:100%">
+<thead>
   <tr>
-    <th>StockCode</th>
-    <th>StockName</th>
+    <th>Name</th>
+    <th>Alias</th>
     <th>Value</th>
-    <th>ValueFormatted</th>
-    <th>ChangeDay</th>
-    <th>ChangeDayFormatted</th>
-    <th>Change12M</th>
-    <th>Change12MFormatted</th>
-    <th>Volume</th>
-    <th>VolumeFormatted</th>
-    <th>Info</th>
+    <th>Direction</th>
+    <th>Spread</th>
+    <th>Link</th>
   </tr>
+</thead>
+<tbody>
   <% @stocks.each do |stock| %>
     <tr>
-      <td><%= stock["StockCode"] %></td>
-      <td><%= stock["StockName"] %></td>
+      <td><%= stock["Name"] %></td>
+      <td><%= stock["Alias"] %></td>
       <td><%= stock["Value"] %></td>
-      <td><%= stock["ValueFormatted"] %></td>
-      <td><%= stock["ChangeDay"] %></td>
-      <td><%= stock["ChangeDayFormatted"] %></td>
-      <td><%= stock["Change12M"] %></td>
-      <td><%= stock["Change12MFormatted"] %></td>
-      <td><%= stock["Volume"] %></td>
-      <td><%= stock["VolumeFormatted"] %></td>
-      <td><%= link_to "info", stock_show_url(stock["StockCode"]) %>
+      <td><%= stock["Direction"] %></td>
+      <td><%= stock["Spread"] %></td>
+      <td><%= link_to "info", stock_show_url(stock["Alias"]) %>
     </tr>
   <% end %>
+</tbody>
 </table>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#example').DataTable({
+        paging: false,
+        searching: false,
+        info: false,
+        order: [],
+    });
+});
+</script>
